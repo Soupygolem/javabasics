@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class stuff implements Comparable<stuff> {
+    private String name;
+    private int age;
+
+    public stuff(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    @Override
+    public int compareTo(stuff otherHorse) {
+        return this.age - otherHorse.age; 
+    }
+    @Override
+    public String toString() {
+        return "Horse{name='" + name + "', age=" + age + "}";
+    }
+
+    public static void main(String[] args) {
+        ArrayList<stuff> horses = new ArrayList<>();
+        horses.add(new stuff("Thunder", 5));
+        horses.add(new stuff("Storm", 7));
+        horses.add(new stuff("Blaze", 3));
+        horses.add(new stuff("Whisper", 10));
+        horses.add(new stuff("Flash", 6));
+        horses.add(new stuff("Rider", 4));
+        horses.add(new stuff("Spirit", 2));
+        horses.add(new stuff("Shadow", 8));
+        horses.add(new stuff("Fury", 9));
+        horses.add(new stuff("Ace", 1));
+        System.out.println("Original list:");
+        for (stuff horse : horses) {
+            System.out.println(horse);
+        }
+        Collections.sort(horses);
+        System.out.println("\nSorted list by age:");
+        for (stuff horse : horses) {
+            System.out.println(horse);
+        }
+    }
+}

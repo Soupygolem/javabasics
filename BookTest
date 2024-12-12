@@ -1,0 +1,17 @@
+public class BookTest {
+    public static void main(String[] args) {
+        Book book1 = new Book("Fahrenheit 451", "Ray Bradbury", "Unread");
+        Book book2 = new Book("To Kill a Mockingbird", "Harper Lee", "Unread");
+        Book book3 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "Unread");
+
+        System.out.println(book1.getTitle() + " - " + book1.getStatus());
+        System.out.println(book2.getTitle() + " - " + book2.getStatus());
+        System.out.println(book3.getTitle() + " - " + book3.getStatus());
+        book1.markAsRead();
+
+        System.out.println("\nAfter reading:");
+        System.out.println(book1.getTitle() + " - " + book1.getStatus());
+        System.out.println(book2.getTitle() + " - " + book2.getStatus());
+        System.out.println(book3.getTitle() + " - " + book3.getStatus());
+    }
+}

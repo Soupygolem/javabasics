@@ -1,0 +1,88 @@
+
+public class 3.1 {
+    private String name;
+    private int birthYear;
+
+    public Horse(String name, int birthYear) {
+        this.name = name;
+        this.birthYear = birthYear;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String toString() {
+        return "Horse Name: " + name + ", Birth Year: " + birthYear;
+    }
+}
+
+public class RaceHorse extends Horse {
+    private int racesWon;
+    private double fastestTime;
+
+    public RaceHorse(String name, int birthYear) {
+        super(name, birthYear);
+        racesWon = 0; 
+        fastestTime = 0.0; 
+    }
+
+    public void addRaceWin() {
+        racesWon++;
+    }
+
+    public void setFastestTime(double time) {
+        fastestTime = time;
+    }
+
+    public String toString() {
+        return super.toString() + ", Races Won: " + racesWon + ", Fastest Time: " + fastestTime;
+    }
+}
+
+public class ShowHorse extends Horse {
+    // New properties
+    private String[] titles; 
+    private int titleCount; 
+
+ 
+    public ShowHorse(String name, int birthYear) {
+        super(name, birthYear); 
+        titles = new String[10]; 
+        titleCount = 0; // Start with no titles
+    }
+
+    // Method to add a show title
+    public void addTitle(String title) {
+        if (titleCount < titles.length) { 
+            titles[titleCount] = title;
+            titleCount++;
+        } else {
+            System.out.println("No more space for titles!");
+        }
+    }
+
+    public String toString() {
+        String allTitles = "";
+        for (int i = 0; i < titleCount; i++) {
+            allTitles += titles[i] + ", ";
+        }
+        return super.toString() + ", Titles Won: " + allTitles;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a basic horse
+        Horse horse = new Horse("Generic Horse", 2010);
+        System.out.println(horse);
+        RaceHorse raceHorse = new RaceHorse("Speedy", 2015);
+        raceHorse.addRaceWin();
+        raceHorse.setFastestTime(9.85);
+        System.out.println(raceHorse);
+        ShowHorse showHorse = new ShowHorse("Shiny", 2012);
+        showHorse.addTitle("Best in Show");
+        showHorse.addTitle("Regional Champion");
+        System.out.println(showHorse);
+    }
+}
